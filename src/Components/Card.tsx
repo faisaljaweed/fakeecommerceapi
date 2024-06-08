@@ -1,4 +1,4 @@
-import { Link,  } from 'react-router-dom';
+import {  useNavigate,  } from 'react-router-dom';
 
 type PropsType = {
   api: any[];
@@ -7,7 +7,7 @@ type PropsType = {
 export default function Card(props: PropsType) {
   const { api } = props;
 
-
+const navigate =useNavigate();
   return (
     <div className="md:grid md:grid-cols-3 md:gap-5 lg:grid lg:grid-cols-5">
       {api.map((item, index) => (
@@ -18,12 +18,14 @@ export default function Card(props: PropsType) {
           <h2 className="font-bold pl-8 pr-8 pt-3">{item.title}</h2>
           <p className="pt-3 font-extrabold text-[32px]">{item.price}</p>
           <div className="pt-3 pb-3">
-     <Link to={`/${item.id}`}>      <button
+     {/* <Link to={`/${item.id}`}>       */}
+     <button
               className="bg-blue-700 text-white hover:bg-red-700"
+              onClick={()=>{navigate(`/${item.id}`)}}
             >
               Buy Now
             </button>
-            </Link> 
+            {/* </Link>  */}
           </div>
         </div>
       ))}

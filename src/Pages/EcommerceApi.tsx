@@ -1,7 +1,7 @@
 import axios from 'axios'
 import Card from '../Components/Card';
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 
 
 export default function EcommerceApi() {
@@ -9,15 +9,13 @@ export default function EcommerceApi() {
     const getApi=()=>{
         axios.get('https://fakestoreapi.com/products')
         .then((res)=>{
-           setApi([...res.data])
+           setApi(res.data)
             console.log(res.data)}).
         catch((err)=>console.log(err));
     }
   return (
     <div>
-<Link to="/">
         <button onClick={getApi}>Get Data</button>
-        </Link>
         <Card api={api}/>
     </div>
   )
