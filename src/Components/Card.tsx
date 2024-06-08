@@ -7,7 +7,7 @@ type PropsType = {
 export default function Card(props: PropsType) {
   const { api } = props;
 
-const navigate =useNavigate();
+const Navigate =useNavigate();
   return (
     <div className="md:grid md:grid-cols-3 md:gap-5 lg:grid lg:grid-cols-5">
       {api.map((item, index) => (
@@ -21,7 +21,7 @@ const navigate =useNavigate();
      {/* <Link to={`/${item.id}`}>       */}
      <button
               className="bg-blue-700 text-white hover:bg-red-700"
-              onClick={()=>{navigate(`/${item.id}`)}}
+              onClick={()=>{Navigate(`/${item.id}`)}}
             >
               Buy Now
             </button>
